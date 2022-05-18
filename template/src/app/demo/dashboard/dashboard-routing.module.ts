@@ -8,7 +8,8 @@ const routes: Routes = [
     children: [
       {
         path: 'default',
-        loadChildren: () => import('./dash-default/dash-default.module').then(module => module.DashDefaultModule), canActivate: [AuthGuard]
+        loadChildren: () => import('./dash-default/dash-default.module').then(module => module.DashDefaultModule)
+        //, canActivate: [AuthGuard]
       }
     ]
   }

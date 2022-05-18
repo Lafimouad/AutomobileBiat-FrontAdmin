@@ -24,7 +24,7 @@ export class SupportChartData1 {
       },
       y: {
         title: {
-          formatter: (seriesName) => 'Ticket '
+          formatter: (seriesName) => 'Credit '
         }
       },
       marker: {

@@ -1,4 +1,3 @@
-import { ThrowStmt } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { Marque } from 'src/app/models/marque';
 import { Modele } from 'src/app/models/modele';
@@ -62,11 +61,9 @@ modeleUpdated=new Modele();
 
   ngOnInit() {
    this.marqueservice.getMarqueList().subscribe((res)=>{
-     console.log("resssssss",res)
      this.marqueList=res;
    })
     this.modeleservice.getMoldeleList().subscribe((res)=>{
-      console.log(res);
       this.modeleList=res;
     })
   
@@ -100,8 +97,8 @@ this.modele.marque=this.marque;
       }
 // delete 
 deleteModele(id:number){
-  this.modeleservice.deleteModele(id).subscribe(data=>console.log(data))
-  location.reload();
+  this.modeleservice.deleteModele(id).subscribe((data=>{console.log(data)}))
+   location.reload();
 }
   
 
@@ -139,6 +136,21 @@ deleteModele(id:number){
 
         }
      
-  
+        //search
+        searchMarque(key:string):void{
+          const result : Modele[]=[];
+          for(const modele of this.modeleList){
+            if(modele.nom.toLocaleLowerCase().indexOf(key.toLocaleLowerCase())!== -1){
+              result.push(modele);
+            }
+          }
+          this.modeleList=result;
+          if(result.length==0|| !key){
+            this.modeleservice.getMoldeleList().subscribe(res=>{console.log(res);
+              this.modeleList=res;})
+      
+          }
+        }
+      
 
 }

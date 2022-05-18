@@ -49,5 +49,8 @@ export class ModeleService {
         return this.http.put(`${this.baseUrl}`,modele);
     }
 
-
+// get Car Number
+    getCarNumber(): Observable<any> {
+        return this.http.get('http://localhost:9008/api/getcarnumber');
+    }
 }

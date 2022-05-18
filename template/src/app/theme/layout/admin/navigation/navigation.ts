@@ -46,21 +46,14 @@ const NavigationItems = [
   
   {
     id: 'forms',
-    title: 'Marques & Modeles',
+    title: 'Marques & Modèles',
     type: 'group',
     icon: 'feather icon-layout',
     children: [
-      {
-        id: 'forms-element',
-        title: 'Forms',
-        type: 'item',
-        url: '/forms/basic',
-        classes: 'nav-item',
-        icon: 'feather icon-file-text'
-      },
+      
       {
         id: 'bootstrap',
-        title: 'Modeles',
+        title: 'Modèles',
         type: 'item',
         url: '/tbl-bootstrap/bt-basic',
         classes: 'nav-item',

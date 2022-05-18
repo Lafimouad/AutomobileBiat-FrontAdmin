@@ -5,50 +5,50 @@
       <div class="col-sm-6">
         <app-card [hidHeader]="true" cardClass="support-bar overflow-hidden" blockClass="p-0" [isCardFooter]="true" footerClass="bg-primary text-white">
           <div class="p-20 pb-0">
-            <h2 class="m-0">350</h2>
-            <span class="text-c-blue">Support Requests</span>
-            <p class="mb-3 mt-3">Total number of support requests that come in.</p>
+            <h2 class="m-0">{{creditList?.length}}</h2>
+            <span class="text-c-blue">Demande de credit</span>
+            <p class="mb-3 mt-3">Nombre total de demandes de credit</p>
           </div>
           <app-apex-chart chartID="support-chart-1" [chartConfig]="this.supportChartData1"></app-apex-chart>
           <div class="app-card-footer">
             <div class="row text-center">
               <div class="col">
-                <h4 class="m-0 text-white">10</h4>
-                <span>Open</span>
+                <h4 class="m-0 text-white">{{acceptedCreditList?.length}}</h4>
+                <span>Accepté</span>
               </div>
               <div class="col">
-                <h4 class="m-0 text-white">5</h4>
-                <span>Running</span>
+                <h4 class="m-0 text-white">{{waitingCreditList?.length}}</h4>
+                <span>Attendre</span>
               </div>
               <div class="col">
-                <h4 class="m-0 text-white">3</h4>
-                <span>Solved</span>
+                <h4 class="m-0 text-white">{{refusedCreditList?.length}}</h4>
+                <span>Refusé</span>
               </div>
             </div>
           </div>
         </app-card>
       </div>
       <div class="col-sm-6">
-        <app-card [hidHeader]="true" cardClass="support-bar overflow-hidden" blockClass="p-0" [isCardFooter]="true" footerClass="bg-success text-white">
+        <app-card [hidHeader]="true" cardClass="support-bar overflow-hidden" blockClass="p-0" [isCardFooter]="true" footerClass="bg-c-yellow text-white">
           <div class="p-20 pb-0">
-            <h2 class="m-0">350</h2>
-            <span class="text-c-green">Support Requests</span>
-            <p class="mb-3 mt-3">Total number of support requests that come in.</p>
+            <h2 class="m-0">{{waitingCreditList?.length}}</h2>
+            <span class="text-c-yellow">Demande de credit</span>
+            <p class="mb-3 mt-3">Nombre total de demandes de credit en attente.</p>
           </div>
           <app-apex-chart chartID="support-chart-2" [chartConfig]="this.supportChartData2"></app-apex-chart>
           <div class="app-card-footer">
             <div class="row text-center">
               <div class="col">
                 <h4 class="m-0 text-white">10</h4>
-                <span>Open</span>
+                <span>En attend</span>
               </div>
-              <div class="col">
+              <!-- <div class="col">
                 <h4 class="m-0 text-white">5</h4>
                 <span>Running</span>
-              </div>
+              </div> -->
               <div class="col">
-                <h4 class="m-0 text-white">3</h4>
-                <span>Solved</span>
+                <h4 class="m-0 text-white">21</h4>
+                <span>Autres</span>
               </div>
             </div>
           </div>
@@ -62,8 +62,8 @@
         <app-card [hidHeader]="true" [isCardFooter]="true" footerClass="bg-c-yellow">
           <div class="row align-items-center">
             <div class="col-8">
-              <h4 class="text-c-yellow">$30200</h4>
-              <h6 class="text-muted m-b-0">All Earnings</h6>
+              <h4 class="text-c-yellow">{{carNumber}}</h4>
+              <h6 class="text-muted m-b-0">Voitures</h6>
             </div>
             <div class="col-4 text-right">
               <i class="feather icon-bar-chart-2 f-28"></i>
@@ -72,7 +72,7 @@
           <div class="app-card-footer">
             <div class="row align-items-center">
               <div class="col-9">
-                <p class="text-white m-b-0">% change</p>
+                <p class="text-white m-b-0">% changement</p>
               </div>
               <div class="col-3 text-right">
                 <i class="feather icon-trending-up text-white f-16"></i>
@@ -85,17 +85,17 @@
         <app-card [hidHeader]="true" [isCardFooter]="true" footerClass="bg-c-green">
           <div class="row align-items-center">
             <div class="col-8">
-              <h4 class="text-c-green">290+</h4>
-              <h6 class="text-muted m-b-0">Page Views</h6>
+              <h4 class="text-c-green">+2900</h4>
+              <h6 class="text-muted m-b-0">Vues de voiture</h6>
             </div>
             <div class="col-4 text-right">
-              <i class="feather icon-file-text f-28"></i>
+              <i class="feather icon-eye f-28"></i>
             </div>
           </div>
           <div class="app-card-footer">
             <div class="row align-items-center">
               <div class="col-9">
-                <p class="text-white m-b-0">% change</p>
+                <p class="text-white m-b-0">% changement</p>
               </div>
               <div class="col-3 text-right">
                 <i class="feather icon-trending-up text-white f-16"></i>
@@ -110,20 +110,20 @@
         <app-card [hidHeader]="true" [isCardFooter]="true" footerClass="bg-c-red">
           <div class="row align-items-center">
             <div class="col-8">
-              <h4 class="text-c-red">145</h4>
-              <h6 class="text-muted m-b-0">Task</h6>
+              <h4 class="text-c-red">{{acceptedCreditList?.length}}</h4>
+              <h6 class="text-muted m-b-0">Accepté</h6>
             </div>
             <div class="col-4 text-right">
-              <i class="feather icon-calendar f-28"></i>
+              <i class="feather icon-thumbs-up f-28"></i>
             </div>
           </div>
           <div class="app-card-footer">
             <div class="row align-items-center">
               <div class="col-9">
-                <p class="text-white m-b-0">% change</p>
+                <p class="text-white m-b-0">% changement</p>
               </div>
               <div class="col-3 text-right">
-                <i class="feather icon-trending-down text-white f-16"></i>
+                <i class="feather icon-trending-up text-white f-16"></i>
               </div>
             </div>
           </div>
@@ -134,19 +134,19 @@
           <div class="row align-items-center">
             <div class="col-8">
               <h4 class="text-c-blue">500</h4>
-              <h6 class="text-muted m-b-0">Downloads</h6>
+              <h6 class="text-muted m-b-0">Téléchargements</h6>
             </div>
             <div class="col-4 text-right">
-              <i class="feather icon-thumbs-down f-28"></i>
+              <i class="feather icon-download f-28"></i>
             </div>
           </div>
           <div class="app-card-footer">
             <div class="row align-items-center">
               <div class="col-9">
-                <p class="text-white m-b-0">% change</p>
+                <p class="text-white m-b-0">% changement</p>
               </div>
               <div class="col-3 text-right">
-                <i class="feather icon-trending-down text-white f-16"></i>
+                <i class="feather icon-trending-up text-white f-16"></i>
               </div>
             </div>
           </div>
@@ -154,184 +154,13 @@
       </div>
     </div>
   </div>
-  <!-- site Analytics card end -->
-
-  <!-- project and team member start -->
-  <div class="col-xl-6 col-md-12">
-    <app-card cardTitle="Projects" cardClass="table-card" blockClass="p-0">
-      <div class="table-responsive">
-        <table class="table table-hover mb-0">
-          <thead>
-            <tr>
-              <th>
-                <div class="chk-option">
-                  <label class="check-task custom-control custom-checkbox d-flex justify-content-center done-task">
-                    <input type="checkbox" class="custom-control-input">
-                    <span class="custom-control-label"></span>
-                  </label>
-                </div>
-                Assigned
-              </th>
-              <th>Name</th>
-              <th>Due Date</th>
-              <th class="text-right">Priority</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>
-                <div class="chk-option">
-                  <label class="check-task custom-control custom-checkbox d-flex justify-content-center done-task">
-                    <input type="checkbox" class="custom-control-input">
-                    <span class="custom-control-label"></span>
-                  </label>
-                </div>
-                <div class="d-inline-block align-middle">
-                  <img src="assets/images/user/avatar-4.jpg" alt="user image" class="img-radius wid-40 align-top m-r-15">
-                  <div class="d-inline-block">
-                    <h6>John Deo</h6>
-                    <p class="text-muted m-b-0">Graphics Designer</p>
-                  </div>
-                </div>
-              </td>
-              <td>Auto Mobile BIAT</td>
-              <td>Jun, 26</td>
-              <td class="text-right"><label class="badge badge-light-danger">Low</label></td>
-            </tr>
-            <tr>
-              <td>
-                <div class="chk-option">
-                  <label class="check-task custom-control custom-checkbox d-flex justify-content-center done-task">
-                    <input type="checkbox" class="custom-control-input">
-                    <span class="custom-control-label"></span>
-                  </label>
-                </div>
-                <div class="d-inline-block align-middle">
-                  <img src="assets/images/user/avatar-2.jpg" alt="user image" class="img-radius wid-40 align-top m-r-15">
-                  <div class="d-inline-block">
-                    <h6>Jenifer Vintage</h6>
-                    <p class="text-muted m-b-0">Web Designer</p>
-                  </div>
-                </div>
-              </td>
-              <td>Mashable</td>
-              <td>March, 31</td>
-              <td class="text-right"><label class="badge badge-light-primary">high</label></td>
-            </tr>
-            <tr>
-              <td>
-                <div class="chk-option">
-                  <label class="check-task custom-control custom-checkbox d-flex justify-content-center done-task">
-                    <input type="checkbox" class="custom-control-input">
-                    <span class="custom-control-label"></span>
-                  </label>
-                </div>
-                <div class="d-inline-block align-middle">
-                  <img src="assets/images/user/avatar-3.jpg" alt="user image" class="img-radius wid-40 align-top m-r-15">
-                  <div class="d-inline-block">
-                    <h6>William Jem</h6>
-                    <p class="text-muted m-b-0">Developer</p>
-                  </div>
-                </div>
-              </td>
-              <td>Flatable</td>
-              <td>Aug, 02</td>
-              <td class="text-right"><label class="badge badge-light-success">medium</label></td>
-            </tr>
-            <tr>
-              <td>
-                <div class="chk-option">
-                  <label class="check-task custom-control custom-checkbox d-flex justify-content-center done-task">
-                    <input type="checkbox" class="custom-control-input">
-                    <span class="custom-control-label"></span>
-                  </label>
-                </div>
-                <div class="d-inline-block align-middle">
-                  <img src="assets/images/user/avatar-2.jpg" alt="user image" class="img-radius wid-40 align-top m-r-15">
-                  <div class="d-inline-block">
-                    <h6>David Jones</h6>
-                    <p class="text-muted m-b-0">Developer</p>
-                  </div>
-                </div>
-              </td>
-              <td>Guruable</td>
-              <td>Sep, 22</td>
-              <td class="text-right"><label class="badge badge-light-primary">high</label></td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </app-card>
-  </div>
-  <div class="col-xl-6 col-md-12">
-    <app-card cardTitle="Latest Updates" cardClass="latest-update-card">
-      <div class="latest-update-box">
-        <div class="row p-t-30 p-b-30">
-          <div class="col-auto text-right update-meta">
-            <p class="text-muted m-b-0 d-inline-flex">2 hrs ago</p>
-            <i class="feather icon-twitter bg-twitter update-icon"></i>
-          </div>
-          <div class="col">
-            <a href="javascript:">
-              <h6>+ 1652 Followers</h6>
-            </a>
-            <p class="text-muted m-b-0">You’re getting more and more followers, keep it up!</p>
-          </div>
-        </div>
-        <div class="row p-b-30">
-          <div class="col-auto text-right update-meta">
-            <p class="text-muted m-b-0 d-inline-flex">4 hrs ago</p>
-            <i class="feather icon-briefcase bg-c-red update-icon"></i>
-          </div>
-          <div class="col">
-            <a href="javascript:">
-              <h6>+ 5 New Products were added!</h6>
-            </a>
-            <p class="text-muted m-b-0">Congratulations!</p>
-          </div>
-        </div>
-        <div class="row p-b-0">
-          <div class="col-auto text-right update-meta">
-            <p class="text-muted m-b-0 d-inline-flex">2 day ago</p>
-            <i class="feather icon-facebook bg-facebook update-icon"></i>
-          </div>
-          <div class="col">
-            <a href="javascript:">
-              <h6>+1 Friend Requests</h6>
-            </a>
-            <p class="text-muted m-b-10">This is great, keep it up!</p>
-            <div class="table-responsive">
-              <table class="table table-hover">
-                <tr>
-                  <td class="b-none">
-                    <a href="javascript:" class="align-middle">
-                      <img src="assets/images/user/avatar-2.jpg" alt="user image" class="img-radius wid-40 align-top m-r-15">
-                      <div class="d-inline-block">
-                        <h6>Jeny William</h6>
-                        <p class="text-muted m-b-0">Graphic Designer</p>
-                      </div>
-                    </a>
-                  </td>
-                </tr>
-              </table>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="text-center">
-        <a href="javascript:" class="b-b-primary text-primary">View all Projects</a>
-      </div>
-    </app-card>
-  </div>
-  <!-- project and team member end -->
-
   <!-- seo start -->
   <div class="col-xl-4 col-md-12">
     <app-card [hidHeader]="true">
       <div class="row align-items-center">
         <div class="col-6">
-          <h3>$16,756</h3>
-          <h6 class="text-muted m-b-0">Visits<i class="fa fa-caret-down text-c-red m-l-10"></i></h6>
+          <h3>21,002 dt</h3>
+          <h6 class="text-muted m-b-0">Gains<i class="fa fa-caret-down text-c-red m-l-10"></i></h6>
         </div>
         <div class="col-6">
           <app-apex-chart chartID="seo-chart-1" [chartConfig]="this.seoChartData1"></app-apex-chart>
@@ -343,8 +172,8 @@
     <app-card [hidHeader]="true">
       <div class="row align-items-center">
         <div class="col-6">
-          <h3>49.54%</h3>
-          <h6 class="text-muted m-b-0">Bounce Rate<i class="fa fa-caret-up text-c-green m-l-10"></i></h6>
+          <h3>35.54%</h3>
+          <h6 class="text-muted m-b-0">Taux du gains<i class="fa fa-caret-up text-c-green m-l-10"></i></h6>
         </div>
         <div class="col-6">
           <app-apex-chart chartID="seo-chart-2" [chartConfig]="this.seoChartData2"></app-apex-chart>
@@ -356,8 +185,8 @@
     <app-card [hidHeader]="true">
       <div class="row align-items-center">
         <div class="col-6">
-          <h3>1,62,564</h3>
-          <h6 class="text-muted m-b-0">Products<i class="fa fa-caret-down text-c-red m-l-10"></i></h6>
+          <h3>+{{carNumber}}</h3>
+          <h6 class="text-muted m-b-0">Voitures<i class="fa fa-caret-down text-c-red m-l-10"></i></h6>
         </div>
         <div class="col-6">
           <app-apex-chart chartID="seo-chart-3" [chartConfig]="this.seoChartData3"></app-apex-chart>

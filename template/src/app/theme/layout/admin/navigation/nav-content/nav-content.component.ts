@@ -2,7 +2,7 @@ import { AfterViewInit, Component, ElementRef, EventEmitter, NgZone, OnInit, Out
 import { NavigationItem } from '../navigation';
 import { NextConfig } from '../../../../../app-config';
 import { Location } from '@angular/common';
-
+import { KeycloakService } from 'keycloak-angular';
 @Component({
   selector: 'app-nav-content',
   templateUrl: './nav-content.component.html',
@@ -18,16 +18,16 @@ export class NavContentComponent implements OnInit, AfterViewInit {
   public scrollWidth: any;
   public windowWidth: number;
   public isNavProfile: boolean;
+  public name="Admin";
 
   @Output() onNavMobCollapse = new EventEmitter();
 
   @ViewChild('navbarContent', {static: false}) navbarContent: ElementRef;
   @ViewChild('navbarWrapper', {static: false}) navbarWrapper: ElementRef;
 
-  constructor(public nav: NavigationItem, private zone: NgZone, private location: Location) {
+  constructor(public nav: NavigationItem, private zone: NgZone, private location: Location,private keycloakService: KeycloakService) {
     this.nextConfig = NextConfig.config;
     this.windowWidth = window.innerWidth;
-
     this.navigation = this.nav.get();
     this.prevDisabled = 'disabled';
     this.nextDisabled = '';
@@ -146,4 +146,7 @@ export class NavContentComponent implements OnInit, AfterViewInit {
     }
   }
 
+  logout(): void {
+    this.keycloakService.logout();
+  }
 }

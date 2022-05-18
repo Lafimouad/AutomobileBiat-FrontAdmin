@@ -17,6 +17,7 @@ const routes: Routes = [
       {
         path: 'dashboard',
         loadChildren: () => import('./demo/dashboard/dashboard.module').then(module => module.DashboardModule)
+        //, canActivate: [AuthGuard]
       },
       {
         path: 'layout',
@@ -24,11 +25,11 @@ const routes: Routes = [
       },
       {
         path: 'basic',
-        loadChildren: () => import('./demo/ui-elements/ui-basic/ui-basic.module').then(module => module.UiBasicModule)
+        loadChildren: () => import('./demo/ui-elements/ui-basic/ui-basic.module').then(module => module.UiBasicModule), canActivate: [AuthGuard]
       },
       {
         path: 'forms',
-        loadChildren: () => import('./demo/pages/form-elements/form-elements.module').then(module => module.FormElementsModule)
+        loadChildren: () => import('./demo/pages/form-elements/form-elements.module').then(module => module.FormElementsModule), canActivate: [AuthGuard]
       },
       {
         path: 'tbl-bootstrap',
@@ -37,6 +38,7 @@ const routes: Routes = [
       {
         path: 'charts',
         loadChildren: () => import('./demo/pages/core-chart/core-chart.module').then(module => module.CoreChartModule)
+        //, canActivate: [AuthGuard]
       },
       {
         path: 'maps',

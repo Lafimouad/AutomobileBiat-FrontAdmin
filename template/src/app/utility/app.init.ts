@@ -5,10 +5,16 @@ export function initializeKeycloak(keycloak: KeycloakService): () => Promise<boo
     return () =>
         keycloak.init({
             config: {
-                url: 'http://localhost:8180/auth',
-                realm: 'angular-web',
-                clientId: 'angular-web-client',
+                url: 'http://20.67.134.169:8080/auth',
+                realm: 'credit-workflow',
+                clientId: 'client',
             },
+            // config: {
+            //     url: 'http://localhost:8180/auth',
+            //     realm: 'angular-web',
+            //     clientId: 'angular-web-client',
+            // },
+
             initOptions: {
                 checkLoginIframe: true,
                 checkLoginIframeInterval: 25

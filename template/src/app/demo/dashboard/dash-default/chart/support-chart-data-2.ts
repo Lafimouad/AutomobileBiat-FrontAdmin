@@ -7,7 +7,7 @@ export class SupportChartData2 {
         enabled: true
       }
     },
-    colors: ['#9ccc65'],
+    colors: ['#ffba57'],
     stroke: {
       curve: 'smooth',
       width: 2,
@@ -24,7 +24,7 @@ export class SupportChartData2 {
       },
       y: {
         title: {
-          formatter: (seriesName) => 'Ticket '
+          formatter: (seriesName) => 'Credit '
         }
       },
       marker: {

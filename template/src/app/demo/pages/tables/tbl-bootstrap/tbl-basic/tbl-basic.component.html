@@ -169,6 +169,8 @@
     <app-card customHeader="true" cardTitle="Striped Table" blockClass="table-border-style">
       <div class="app-card-header">
         <button type="button" class="btn btn-primary" data-toggle="modal" (click)="myLargeModalLabel.show()">+</button>
+        <input type="search" (ngModelChange)="searchMarque(key.value)" #key="ngModel" ngModel
+        placeholder="Search" class="form-control" name="key" id="searchName" />  
 
       </div>
       <div class="table-responsive">
