@@ -85,6 +85,22 @@ const NavigationItems = [
       }
     ]
   },
+  {
+    id: 'credit',
+    title: 'Credits',
+    type: 'group',
+    icon: 'feather icon-credit-card',
+    children: [
+      {
+        id: 'credits',
+        title: 'Credits',
+        type: 'item',
+        url: '/layout/static',
+        classes: 'nav-item',
+        icon: 'feather icon-credit-card'
+      }
+    ]
+  }
   
 ];
 
