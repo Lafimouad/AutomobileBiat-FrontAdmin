@@ -3,6 +3,8 @@ import { NavigationItem } from '../navigation';
 import { NextConfig } from '../../../../../app-config';
 import { Location } from '@angular/common';
 import { KeycloakService } from 'keycloak-angular';
+import { KeycloakSecurityService } from 'src/app/services/creditservices/keycloak-security.service';
+
 @Component({
   selector: 'app-nav-content',
   templateUrl: './nav-content.component.html',
@@ -18,14 +20,14 @@ export class NavContentComponent implements OnInit, AfterViewInit {
   public scrollWidth: any;
   public windowWidth: number;
   public isNavProfile: boolean;
-  public name="Admin";
+  public name="";
 
   @Output() onNavMobCollapse = new EventEmitter();
 
   @ViewChild('navbarContent', {static: false}) navbarContent: ElementRef;
   @ViewChild('navbarWrapper', {static: false}) navbarWrapper: ElementRef;
 
-  constructor(public nav: NavigationItem, private zone: NgZone, private location: Location,private keycloakService: KeycloakService) {
+  constructor(public securityService :KeycloakSecurityService,public nav: NavigationItem, private zone: NgZone, private location: Location,private keycloakService: KeycloakService) {
     this.nextConfig = NextConfig.config;
     this.windowWidth = window.innerWidth;
     this.navigation = this.nav.get();
@@ -38,6 +40,7 @@ export class NavContentComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit() {
+    this.name=this.securityService.role;
     if (this.windowWidth < 992) {
       this.nextConfig['layout'] = 'vertical';
       setTimeout(() => {
@@ -146,7 +149,9 @@ export class NavContentComponent implements OnInit, AfterViewInit {
     }
   }
 
-  logout(): void {
-    this.keycloakService.logout();
+  onLogout(){
+    this.securityService.kc.logout({
+      // redirectUri: "http://52.156.203.158"
+    });
   }
 }

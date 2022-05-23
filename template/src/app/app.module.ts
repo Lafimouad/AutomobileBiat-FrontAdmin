@@ -26,8 +26,14 @@ import { NgbButtonsModule, NgbDropdownModule, NgbTabsetModule, NgbTooltipModule 
 
 // keycloak
 import { KeycloakAngularModule, KeycloakService } from 'keycloak-angular';
-import { initializeKeycloak } from '../app/utility/app.init';
 import { HttpClientModule } from '@angular/common/http';
+import { KeycloakSecurityService } from './services/creditservices/keycloak-security.service';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+
+export function kcFactory(kcSecurity: KeycloakSecurityService){
+  return ()=> kcSecurity.init();
+}
 @NgModule({
   declarations: [
     AppComponent,
@@ -54,17 +60,12 @@ import { HttpClientModule } from '@angular/common/http';
     NgbTooltipModule,
     NgbButtonsModule,
     NgbTabsetModule,
-    KeycloakAngularModule,HttpClientModule,FormsModule
+    KeycloakAngularModule,HttpClientModule,FormsModule,Ng2SearchPipeModule
 
     
   ],
-  providers: [{
-    provide: APP_INITIALIZER,
-    useFactory: initializeKeycloak,
-    multi: true,
-    deps: [KeycloakService],
-  },
-    NavigationItem],
+  schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
+  providers: [ {provide:APP_INITIALIZER,deps:[KeycloakSecurityService],useFactory:kcFactory,multi:true},NavigationItem],
   
   bootstrap: [AppComponent]
 })
