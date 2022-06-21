@@ -46,7 +46,7 @@ export class DashDefaultComponent implements OnInit {
     this.creditServices.getCredit().subscribe((res)=>{
       this.creditList=res;
       console.log(this.creditList);
-      this.acceptedCreditList=this.creditList.filter((data)=>data.status=="accepté");
+      this.acceptedCreditList=this.creditList.filter((data)=>data.status=="En cours");
       this.refusedCreditList=this.creditList.filter((data)=>data.status=="Refuser");
       this.waitingCreditList=this.creditList.filter((data)=>data.status!="accepté"&&data.status!="Refuser");
 

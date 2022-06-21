@@ -54,8 +54,8 @@
                       </div> -->
 
                       <div class="input-group p-2">
-                        <span class="input-group-text" id="validationTooltipUsernamePrepend"><i class="nc-icon nc-icon nc-zoom-split"></i></span>
                         <input type="search" class="form-control me-2 rounded-right "  [(ngModel)]="searchText" placeholder="Recherche">
+                        <span class="input-group-text" id="validationTooltipUsernamePrepend"><i class="feather icon-filter"></i></span>
 
                       </div>
 
@@ -94,9 +94,9 @@
                               <th class="color text-center">Prenom</th>
                               <th class="color">Montant Credit</th>
                               <th class="color text-center">Type</th>
-                              <th class="color" >Duree Remboursement (par mois)</th>
+                              <th class="color" >Remboursement Mensuel </th>
                               <th class="color">AutoFinancement</th>
-                              <th></th>
+                              <th class="color"> Action</th>
                               </tr>
                           </thead>
                           <tbody>
@@ -116,16 +116,18 @@
                                   <td class="align-middle fw-bolder">{{ credit.demandeCredit.type | uppercase}}</td>
                                   <td class="align-middle">{{ credit.demandeCredit.dureeRemboursement }}</td>
                                   <td class="align-middle">{{ credit.demandeCredit.autoFinancement }}</td>
-                                  <td class="container-fluid"><button type="button" rel="tooltip"  class="btn btn-info btn-simple btn-link " data-original-title="Edit Task" (click)="updateListNotif(credit.id)" (click)="redirectToCreditDetails(credit.demandeCredit.type, credit.id,'ajout')" >
-                                    <i class="fa fa-edit"></i>
+                                  <td class="container-fluid"><button type="button" rel="tooltip"  class="btn btn-icon btn-info" data-original-title="Edit Task" (click)="updateListNotif(credit.id)" (click)="redirectToCreditDetails(credit.demandeCredit.type, credit.id,'ajout')" >
+                                    <i class="feather icon-info"></i>
                                 </button></td>
                               </tr>
 
                           </tbody>
 
                        </table>
+                       
                   </div>
                 </div>
+                
               <!-- </div> -->
 
               <!-- directeur de zone -->
@@ -184,8 +186,8 @@
                     <!-- <input class="form-control me-2 " type="search" [(ngModel)]="searchText2" placeholder="Search text"> -->
 
                     <div class="input-group p-2">
-                      <span class="input-group-text" id="validationTooltipUsernamePrepend"><i class="nc-icon nc-icon nc-zoom-split"></i></span>
                       <input type="search" class="form-control me-2 rounded-right "  [(ngModel)]="searchText2" placeholder="Recherche">
+                      <span class="input-group-text" ><i class="feather icon-filter"></i></span>
 
                     </div>
                   </div>
@@ -226,7 +228,7 @@
                             <th class="color">Type</th>
                             <th class="color">Duree Remboursement (par mois)</th>
                             <th class="color">Statut</th>
-                            <th class="color"></th>
+                            <th class="color">Action</th>
                         </tr></thead>
                         <tbody>
                           <!-- {{ logthis(demandeTable.rows) }}
@@ -247,7 +249,7 @@
 
                                 <td><span *ngIf="demande.status" class="badge bg-success">Validée</span>
                                 <span *ngIf="!demande.status" class="badge bg-danger">Non Validée</span></td>
-                                <td class="container-fluid bor"><button type="button" rel="tooltip"  class="btn btn-info btn-simple btn-link" data-original-title="Edit Task" (click)="redirectToCreditDetails(demande.demandeCredit.type, demande.id,'edit')">
+                                <td class="container-fluid bor"><button type="button" rel="tooltip"  class="btn btn-info btn-simple" data-original-title="Edit Task" (click)="redirectToCreditDetails(demande.demandeCredit.type, demande.id,'edit')">
                                   <i class="fa fa-edit"></i>
                               </button></td>
                             </tr>

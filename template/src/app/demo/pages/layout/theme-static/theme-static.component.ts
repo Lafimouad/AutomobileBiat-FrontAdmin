@@ -15,13 +15,12 @@ import { ListNotificationService } from 'src/app/services/creditservices/list-no
 })
 export class ThemeStaticComponent implements OnInit  ,OnDestroy {
 
-
-
+  
   msgTest = "test test";
 
   listNotifUpdate ;
 
-  credits : NoteCredit[] = [];
+  credits : NoteCredit[] = []
   creditSupscription : Subscription;
 
 

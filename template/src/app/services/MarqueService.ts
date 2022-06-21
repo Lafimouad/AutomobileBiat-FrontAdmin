@@ -10,7 +10,8 @@ import { Marque } from '../models/marque';
 
 export class MarqueService {
 
-    private baseUrl = 'http://localhost:9008/api/marque';
+    private baseUrl = 'http://20.248.128.253:9008/api/marque';
+    private baseUrl1='http://localhost:9008/api/marque';
 
     constructor(private http: HttpClient) { }
 

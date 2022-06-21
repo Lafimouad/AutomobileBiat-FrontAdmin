@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { CreditAutoComponent } from './demo/credit-auto/credit-auto.component';
+import { DocumentComponent } from './demo/document/document.component';
 import { AdminComponent } from './theme/layout/admin/admin.component';
 import {AuthComponent} from './theme/layout/auth/auth.component';
 
@@ -46,7 +48,9 @@ const routes: Routes = [
       {
         path: 'sample-page',
         loadChildren: () => import('./demo/pages/sample-page/sample-page.module').then(module => module.SamplePageModule)
-      }
+      },
+      {path:'creditAuto/:index/:etat', component:CreditAutoComponent},
+      {path: 'document/:id/:type' , component:DocumentComponent},
     ]
   },
   {

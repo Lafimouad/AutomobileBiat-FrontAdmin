@@ -10,7 +10,8 @@ import { Modele } from '../models/modele';
 
 export class ModeleService {
 
-    private baseUrl = 'http://localhost:9008/api/modele';
+    private baseUrl = 'http://20.248.128.253:9008/api/modele';
+    private baseUrl1 = 'http://localhost:9008/api/modele';
 
     constructor(private http: HttpClient) { }
 

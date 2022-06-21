@@ -92,10 +92,18 @@ const NavigationItems = [
     icon: 'feather icon-credit-card',
     children: [
       {
-        id: 'credits',
-        title: 'Credits',
+        id: 'creditstraiter',
+        title: 'Credits à traiter ',
         type: 'item',
         url: '/layout/static',
+        classes: 'nav-item',
+        icon: 'feather icon-credit-card'
+      },
+      {
+        id: 'creditsAcceptés',
+        title: 'Credits Acceptés',
+        type: 'item',
+        url: '/layout/horizontal',
         classes: 'nav-item',
         icon: 'feather icon-credit-card'
       }

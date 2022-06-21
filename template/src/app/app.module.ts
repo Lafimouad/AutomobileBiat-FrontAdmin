@@ -20,17 +20,18 @@ import { NavRightComponent } from './theme/layout/admin/nav-bar/nav-right/nav-ri
 import { ConfigurationComponent } from './theme/layout/admin/configuration/configuration.component';
 import { ToggleFullScreenDirective } from './theme/shared/full-screen/toggle-full-screen';
 import { FormsModule } from '@angular/forms';
+import { DocumentComponent } from './demo/document/document.component';
+
 /* Menu Items */
 import { NavigationItem } from './theme/layout/admin/navigation/navigation';
 import { NgbButtonsModule, NgbDropdownModule, NgbTabsetModule, NgbTooltipModule } from '@ng-bootstrap/ng-bootstrap';
-
 // keycloak
 import { KeycloakAngularModule, KeycloakService } from 'keycloak-angular';
 import { HttpClientModule } from '@angular/common/http';
 import { KeycloakSecurityService } from './services/creditservices/keycloak-security.service';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
-
+import { CreditAutoComponent } from './demo/credit-auto/credit-auto.component';
 export function kcFactory(kcSecurity: KeycloakSecurityService){
   return ()=> kcSecurity.init();
 }
@@ -49,7 +50,9 @@ export function kcFactory(kcSecurity: KeycloakSecurityService){
     NavSearchComponent,
     NavRightComponent,
     ConfigurationComponent,
-    ToggleFullScreenDirective
+    ToggleFullScreenDirective,
+    DocumentComponent ,
+    CreditAutoComponent
   ],
   imports: [
     BrowserModule,
@@ -61,8 +64,6 @@ export function kcFactory(kcSecurity: KeycloakSecurityService){
     NgbButtonsModule,
     NgbTabsetModule,
     KeycloakAngularModule,HttpClientModule,FormsModule,Ng2SearchPipeModule
-
-    
   ],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
   providers: [ {provide:APP_INITIALIZER,deps:[KeycloakSecurityService],useFactory:kcFactory,multi:true},NavigationItem],
