@@ -274,4 +274,29 @@ export class ThemeStaticComponent implements OnInit  ,OnDestroy {
   //   );
   // }
 
+// search non taité
+  search1(key:string):void{
+    const result : any[]=[];
+    for(const credit of this.credits){
+      if(credit.demandeCredit.client.nom.toLocaleLowerCase().indexOf(key.toLocaleLowerCase())!== -1){
+        result.push(credit);
+      }
+    }
+    this.credits=result;
+    if(result.length==0|| !key){
+      this.noteCreditService.getAllNoteWithToken();
+      this.creditSupscription=this.noteCreditService.listeNoteSubject.subscribe(
+        (result: NoteCredit[])=>{
+          this.credits=result;
+          console.log('list credit ',this.credits);
+        },
+        error=>{
+          console.log("error :"+error);
+        }
+      );
+
+    }
+  }
+
+  
 }

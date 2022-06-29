@@ -48,7 +48,7 @@
                   <a  class="list-group-item list-group-item-action list-item-color p-3 my-3 shadow" routerLink="/document/{{ demande.demandeCredit.id }}/{{ demande.demandeCredit.type }}">
                     <div class="d-flex w-100 justify-content-between">
                       <h5 class="mb-1 fw-bolder">{{ demande.demandeCredit.client.nom | uppercase}}  {{ demande.demandeCredit.client.prenom  | uppercase }}</h5>
-                      <small class="text-muted"><span class="badge rounded-pill bg-warning text-dark">{{ demande.dateModification}} </span></small>
+                      <h5 class="text-muted"><span class="badge rounded-pill bg-warning text-dark">{{ demande.dateModification}} </span></h5>
                       <!-- getDate() | date -->
                     </div>
                     <p class="mb-1 text-muted">Email :  {{ demande.demandeCredit.client.email }} </p>

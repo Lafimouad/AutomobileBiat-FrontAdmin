@@ -54,7 +54,8 @@
                       </div> -->
 
                       <div class="input-group p-2">
-                        <input type="search" class="form-control me-2 rounded-right "  [(ngModel)]="searchText" placeholder="Recherche">
+                        <input type="search" class="form-control me-2 rounded-right "  type="search" (ngModelChange)="search1(key.value)" #key="ngModel" ngModel
+                      name="key" id="searchName"  placeholder="Recherche">
                         <span class="input-group-text" id="validationTooltipUsernamePrepend"><i class="feather icon-filter"></i></span>
 
                       </div>
@@ -96,7 +97,7 @@
                               <th class="color text-center">Type</th>
                               <th class="color" >Remboursement Mensuel </th>
                               <th class="color">AutoFinancement</th>
-                              <th class="color"> Action</th>
+                              <th class="color"> Détails</th>
                               </tr>
                           </thead>
                           <tbody>
@@ -116,9 +117,10 @@
                                   <td class="align-middle fw-bolder">{{ credit.demandeCredit.type | uppercase}}</td>
                                   <td class="align-middle">{{ credit.demandeCredit.dureeRemboursement }}</td>
                                   <td class="align-middle">{{ credit.demandeCredit.autoFinancement }}</td>
-                                  <td class="container-fluid"><button type="button" rel="tooltip"  class="btn btn-icon btn-info" data-original-title="Edit Task" (click)="updateListNotif(credit.id)" (click)="redirectToCreditDetails(credit.demandeCredit.type, credit.id,'ajout')" >
-                                    <i class="feather icon-info"></i>
-                                </button></td>
+                                 
+                                <td class="container-fluid" ><button type="button" rel="tooltip"  class="btn1" data-original-title="Edit Task" (click)="updateListNotif(credit.id)" (click)="redirectToCreditDetails(credit.demandeCredit.type, credit.id,'ajout')" >
+                                  <i class="feather icon-info" style="color:#5499C7"></i>
+                              </button></td>
                               </tr>
 
                           </tbody>
@@ -226,9 +228,9 @@
                             <th class="color">Prenom</th>
                             <th class="color">Montant Credit</th>
                             <th class="color">Type</th>
-                            <th class="color">Duree Remboursement (par mois)</th>
+                            <th class="color">Remboursement Mensuel</th>
                             <th class="color">Statut</th>
-                            <th class="color">Action</th>
+                            <th class="color">Modifier</th>
                         </tr></thead>
                         <tbody>
                           <!-- {{ logthis(demandeTable.rows) }}
@@ -249,8 +251,8 @@
 
                                 <td><span *ngIf="demande.status" class="badge bg-success">Validée</span>
                                 <span *ngIf="!demande.status" class="badge bg-danger">Non Validée</span></td>
-                                <td class="container-fluid bor"><button type="button" rel="tooltip"  class="btn btn-info btn-simple" data-original-title="Edit Task" (click)="redirectToCreditDetails(demande.demandeCredit.type, demande.id,'edit')">
-                                  <i class="fa fa-edit"></i>
+                                <td ><button type="button" rel="tooltip"  class="btn1" data-original-title="Edit Task" (click)="redirectToCreditDetails(demande.demandeCredit.type, demande.id,'edit')"  style="padding: top 0;">
+                                <i class="feather icon-edit" style="color: #5499C7;"></i>
                               </button></td>
                             </tr>
 

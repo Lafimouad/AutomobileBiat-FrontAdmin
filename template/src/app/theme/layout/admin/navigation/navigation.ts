@@ -57,7 +57,7 @@ const NavigationItems = [
         type: 'item',
         url: '/tbl-bootstrap/bt-basic',
         classes: 'nav-item',
-        icon: 'feather icon-server'
+        icon: 'feather icon-package'
       },
       {
         id: 'bootstrap',
@@ -65,7 +65,7 @@ const NavigationItems = [
         type: 'item',
         url: '/tbl-bootstrap/bt-sizing',
         classes: 'nav-item',
-        icon: 'feather icon-server'
+        icon: 'feather icon-package'
       }
     ]
   },

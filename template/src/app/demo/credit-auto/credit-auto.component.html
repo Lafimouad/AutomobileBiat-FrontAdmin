@@ -152,7 +152,7 @@
                                         <label><h5 class="mt-5">Description</h5></label>
                                         <i class="nc-icon nc-icon nc-single-copy-04 m-3"></i>
                                         <input *ngIf="etat == 'ajout'" ngModel name="description" rows="8" cols="80" class="form-control" placeholder="Ajouter votre description à propos cette demande de crédit" required/>
-                                        <textarea *ngIf="etat == 'edit'" ngModel name="description" rows="8" cols="80" class="form-control"  [(ngModel)]="listCommentaires[niveau].commentaire" required></textarea>
+                                        <input *ngIf="etat == 'edit'" ngModel name="description" rows="8" cols="80" class="form-control"  [(ngModel)]="listCommentaires[niveau].commentaire" required/>
                                     </div>
                                 </div>
                             </div>
@@ -203,6 +203,6 @@
 
     </div>
      <div class="app-modal-footer">
-      <a class="btn flot-end bg-color color" href="http://20.67.133.33:8080/getfile/{{ noteCredit.demandeCredit?.id }}">Telechager</a>
+      <a class="btn-primary" href="http://20.67.133.33:8080/getfile/{{ noteCredit.demandeCredit?.id }}">Telechager</a>
     </div>
 </app-ui-modal>

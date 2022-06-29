@@ -1,10 +1,22 @@
+
 <div class="content">
     <div class="container-fluid">
     <div class="row">
       <div class="col-12">
         <app-card [hidHeader]="true" cardClass="text-center">
-          <h4 class="card-title txt-color">Liste des Documents </h4>
-          <p class="card-text">Vous trouvez ci-dessous les documents envoyés</p>
+         <div class="row justify-content-end" >
+          <div class="col-8 justify-content-end">
+            <h4 class="card-title txt-color">Liste des Documents </h4>
+            <!-- <p class="card-text">Vous trouvez ci-dessous les documents envoyés</p> -->
+          </div>
+          <div class="col-4">
+            <div class="text-center">
+              <button class="btn btn-primary " type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" (click)="myLargeModalLabel1.show()"
+                aria-controls="offcanvasRight">Générer le contrat</button>
+            </div>
+          </div>
+         </div>
+          
           <table class="table  container-fluid">
             <tbody>
         
@@ -14,7 +26,7 @@
                   <button *ngIf="!document.status" type="button" class="btn btn-icon btn-danger"><i class="feather icon-x"></i></button>
         
                 </td>
-                <td><div class="align-self-center">
+                <td><div class="justify-content-center" style="padding-top: 3%;">
                   {{document.nom }} </div></td>
                 <td>
                   <button type="button" [disabled]="!document.status" class="btn btn-primary" data-bs-toggle="modal" (click)="getImageData( document.url ,document.nom , document.nomDoc );myLargeModalLabel.show()">
@@ -28,66 +40,6 @@
           <hr><i class="now-ui-icons loader_refresh spin"></i> Dernier mis à jour {{ dateUpdateDoc?.date}}
         
         </app-card>
-      </div>
-
-
-      <div class="col-md-12" *ngIf="displayTitle">
-
-
-        <p class="text-center h2 txt-color">Consulter les documents </p>
-        <div class="d-flex flex-row justify-content-center mb-3">
-          <hr class="col-8 m-1 align-self-center bar">
-        </div>
-        <div class="card-group d-flex flex-rows">
-
-          <div class="row row-cols-3">
-
-            <ng-container *ngFor="let document of listDocument ; let i = index">
-              <div *ngIf="document.status == true">
-                <div class="card m-2 rounded shadow-sm mb-5 GeneralView">
-
-
-
-
-
-                  <div class="card-body">
-
-                    <!-- *ngIf="!testtypeFile(document.nomDoc)" -->
-                    <img src="{{ document.url }}" class="card-img-top rounded pb-2 " alt="document 1" height="300"
-                      *ngIf="(document.nomDoc).slice(-3) == 'jpg'">
-
-                    <!-- <object data="http://localhost:9010/getFichePaie1/11" type="application/pdf" >
-                      <iframe src="http://localhost:9010/getFichePaie1/11"></iframe>
-                    </object> -->
-
-                    <div class="pdf-wrapper pb-2" *ngIf="(document.nomDoc).slice(-3) == 'pdf'">
-
-                      <!-- <iframe src= "http://localhost:9010/getFichePaie1/11#toolbar=0" frameborder="0"*ngIf="(document.nomDoc).slice(-3) == 'pdf'"></iframe> -->
-                      <!-- <pdf-viewer src="{{ document.url }}" [zoom]="1" [page]="1" [original-size]="false" [show-all]="true"
-                      [stick-to-page]="true" height="100%"></pdf-viewer> -->
-
-                    </div>
-
-                    <h5 class="card-title">{{ document.nom }}</h5>
-
-                    <!-- <p class="card-text"><small class="text-muted">text</small></p> -->
-                    <button type="button" class="btn bg-color color mt-3 modalop" data-bs-toggle="modal" (click)="getImageData( document.url ,document.nom , document.nomDoc );myLargeModalLabel.show()">
-                      inspecter
-                    </button>
-                  </div>
-
-                </div>
-              </div>
-            </ng-container>
-
-          </div>
-
-
-        </div>
-        <div class="text-center">
-          <button class="btn color-th " type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" (click)="myLargeModalLabel1.show()"
-            aria-controls="offcanvasRight">Générer le contrat</button>
-        </div>
       </div>
 
       <div *ngIf="!displayTitle">
@@ -127,7 +79,7 @@
   </div>
 </div>
 
-
+<!-- Modal inspecter Start -->
 <app-ui-modal #myLargeModalLabel [hideFooter]="false" [dialogClass]="'modal-lg'">
   <div class="app-modal-header">
     <h5 class="modal-title">{{ titleDocument }}</h5>
@@ -142,12 +94,12 @@
 </app-ui-modal>
 <!-- {{ listDocument | json }} -->
 
+<!-- Modal inspecter End -->
 
 
 
 
-
-
+<!-- Modal Contrat Start-->
 <app-ui-modal #myLargeModalLabel1 [hideFooter]="true" [dialogClass]="'modal-lg'">
   <div class="app-modal-header">
     <h5 class="modal-title">Contrat de crédit</h5>
@@ -211,3 +163,5 @@
       <a class="btn flot-end color-th color" href="{{ imageUrl }}">Telechager</a>
     </div>
 </app-ui-modal>
+
+<!-- Modal Contrat End -->

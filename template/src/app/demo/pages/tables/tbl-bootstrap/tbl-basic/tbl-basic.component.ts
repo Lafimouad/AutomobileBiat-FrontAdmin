@@ -138,7 +138,7 @@ deleteModele(id:number){
      
         //search
         searchMarque(key:string):void{
-          const result : Modele[]=[];
+          const result : any[]=[];
           for(const modele of this.modeleList){
             if(modele.nom.toLocaleLowerCase().indexOf(key.toLocaleLowerCase())!== -1){
               result.push(modele);

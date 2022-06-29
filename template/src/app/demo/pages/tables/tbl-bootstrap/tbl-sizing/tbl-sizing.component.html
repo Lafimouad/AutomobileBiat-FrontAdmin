@@ -68,7 +68,9 @@
   <div class="col-xl-12">
     <app-card customHeader="true" cardTitle="Marques" blockClass="table-border-style">
       <div class="app-card-header">
-        <button type="button" class="btn btn-primary" data-toggle="modal" (click)="myLargeModalLabel.show()">+</button>
+        <div class="row d-flex justify-content-end">
+          <button type="button" class="btn btn-primary" data-toggle="modal" (click)="myLargeModalLabel.show()" style="margin-right: 2%;">+</button>
+        </div>
         <input type="search" (ngModelChange)="searchMarque(key.value)" #key="ngModel" ngModel
         placeholder="Search" class="form-control" name="key" id="searchName" />  
       
